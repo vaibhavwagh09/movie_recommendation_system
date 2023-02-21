@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="conatiner justify-content-center">
+  <form method='POST'>
+    <div class="container my-3" style="width:auto">
+        <div class="d-flex">
+            <input class="form-control me-2" id="search_movie" name="searched_movie" type="search" placeholder="Search Movie" 
+            aria-label="Search" action="" method="POST" role="form">
+            <button class="btn btn-outline-success" type="submit" value="submit">Search</button>
+        </div>
+    </div>
+   
+    <div class="card mx-5 my-2" style="width: auto;">
+        <div class="card-body">
+          <h5 class="card-title">Searched Movie</h5>
+          <p class="card-text">{{ close_match }}</p>
+         
+        </div>
+    </div>
+  
+    <div class="card mx-5 my-2" style="width:auto;">
+        <div class="card-body">
+          <h5 class="card-title">Recommended Movie</h5>
+          <p class="card-text">
+            {% for names in sugested_movies %}
+              
+              <span> {{ names }}</span>   <br> 
+            {% endfor %}
+          </p>
+        </div>
+    </div>
+  </form>  
+</div>
+{% endblock body %}
